@@ -1,11 +1,11 @@
 {
-  "name": "discord-nft-sales-bot",
-  "version": "1.0.3",
+  "name": "yeti-discord-nft-sales-bot",
+  "version": "1.0.2",
   "description": "Open source NFT sales discord bot",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "git@github.com:nftboi/discord-nft-sales-bot.git",
-  "author": "nftboi <ethnftboi@protonmail.com>",
+  "repository": "git@github.com:yeti-labs/discord-nft-sales-bot.git",
+  "author": "zach-andrews",
   "license": "MIT",
   "dependencies": {
     "bignumber.js": "^9.0.1",
