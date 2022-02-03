@@ -5,6 +5,8 @@ import BN from "bignumber.js";
 import { createMessage, discordSetup } from "./discord";
 import { fetchMetadata } from "./utils";
 import debug from "debug";
+import Discord from "discord.js";
+
 
 const log = debug("DISCORD_BOT");
 
@@ -29,6 +31,10 @@ type Options = {
   contractAddress: string;
   discordBotToken: string;
   discordChannelId: string;
+  discordBotName: string;
+  discordBotLink: string;
+  discordBotImage: string;
+  discordBotColor: number;
 };
 
 const WETH_ADDRESS = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2".toLowerCase();
@@ -37,7 +43,11 @@ async function nftSalesBot(options: Options) {
   log("Setting up discord bot");
   const channel = await discordSetup(
     options.discordBotToken,
-    options.discordChannelId
+    options.discordChannelId,
+    options.discordBotName,
+    options.discordBotLink,
+    options.discordBotImage,
+    options.discordBotColor,
   );
   log("Setting up discord bot complete");
 

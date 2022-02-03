@@ -1,10 +1,25 @@
 import { format } from "date-fns";
 import Discord, { Intents, TextChannel } from "discord.js";
 
+var botname: string;
+var botimage: string;
+var botcolor: number;
+var botlink: string;
+
 export const discordSetup = (
   discordBotToken: string,
-  discordChannelId: string
+  discordChannelId: string,
+  discordBotName: string,
+  discordBotLink: string,
+  discordBotImage: string,
+  discordBotColor: number,
+
 ): Promise<TextChannel> => {
+  botname = discordBotName;
+  botimage = discordBotImage;
+  botlink = discordBotLink;
+  botcolor = discordBotColor;
+
   const discordBot = new Discord.Client({
     intents: [Intents.FLAGS.GUILD_MESSAGES],
   });
@@ -27,12 +42,12 @@ export const createMessage = (
   tokenId: string
 ) =>
   new Discord.MessageEmbed()
-    .setColor("#66ff82")
+    .setColor(botcolor)
     .setTitle(`${metadata.name} sold!`)
     .setAuthor(
-      "NFT Sales Bot",
-      "https://lh3.googleusercontent.com/JwIqBA0ilWVKXhRMG7kWTqfSZWaDQtYPbgVAAVrtZ4l1FxTbrdWVSZaB2K3gwXU5TAR3sqB0_8H8dWysOTGtczNK7zaoOJcCYR9iir8=w600",
-      "https://github.com/nftboi/discord-nft-sales-bot"
+      botname,
+      botimage,
+      botlink
     )
     .addFields(
       { name: "Name", value: metadata.name },
